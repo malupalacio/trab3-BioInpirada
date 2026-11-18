@@ -1,0 +1,12 @@
+﻿BOHACHEVSKY - ESTRATEGIA PADRAO
+
+10 execucoes de 50 geracoes, copiadas da branch origin/bohachevsky.
+Origem: bohachevsky/results_50_ger/bohachevsky_<execucao>_50.txt
+Destino: logs/<execucao>.log (conteudo original preservado).
+Commit de origem: e1fc1d6f8e3616cb7890ef07f5f521125c2b6945
+
+Funcao objetivo: Bohachevsky (2 dimensoes), dominio [-100, 100].
+Taxa de migracao fixa: D = 0.20; pai externo escolhido aleatoriamente.
+R = [2.2, 2.25, 2.5, 2.75]; 4 ilhas; grades 10x10.
+
+Os resultados de 200 e 1000 geracoes nao foram incluidos.

@@ -1,0 +1,360 @@
+
+--- GERAÇÃO 01 ---
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=9.1686 | Sigma=0.0985
+  Ilha 2 (R=2.5): Pop=62 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=67 | Melhor Fitness=4.9918 | Sigma=1.3163
+-> Melhor Global até agora: 2.482302
+
+--- GERAÇÃO 02 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=9.1686 | Sigma=0.0985
+  Ilha 2 (R=2.5): Pop=58 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=60 | Melhor Fitness=4.9918 | Sigma=1.3163
+-> Melhor Global até agora: 2.482302
+
+--- GERAÇÃO 03 ---
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=64 | Melhor Fitness=4.9918 | Sigma=1.3163
+-> Melhor Global até agora: 2.482302
+
+--- GERAÇÃO 04 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 05 ---
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 06 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 07 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 08 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 09 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 10 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 11 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=8.0812 | Sigma=0.0870
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 12 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=6.3609 | Sigma=0.2518
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 13 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.4823 | Sigma=0.0098
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=6.3609 | Sigma=0.2518
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=4.7178 | Sigma=0.2728
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.085935
+
+--- GERAÇÃO 14 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.0115 | Sigma=0.0104
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=6.3609 | Sigma=0.2518
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.8480 | Sigma=0.4329
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 2.011451
+
+--- GERAÇÃO 15 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=6.3609 | Sigma=0.2518
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.8480 | Sigma=0.4329
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 16 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=6.3609 | Sigma=0.2518
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.8480 | Sigma=0.4329
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 17 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=6.3609 | Sigma=0.2518
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.8480 | Sigma=0.4329
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 18 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.2202 | Sigma=0.2452
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 19 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.2202 | Sigma=0.2452
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 20 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.2202 | Sigma=0.2452
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 21 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.2202 | Sigma=0.2452
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 22 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.1291 | Sigma=0.5704
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 23 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.1291 | Sigma=0.5704
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 24 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.2928 | Sigma=0.0543
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 25 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.1056 | Sigma=0.3918
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 26 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.1056 | Sigma=0.3918
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 27 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=4.1056 | Sigma=0.3918
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 28 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.0512 | Sigma=0.0682
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 29 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.0512 | Sigma=0.0682
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 30 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.0512 | Sigma=0.0682
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 31 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.0512 | Sigma=0.0682
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 32 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.0512 | Sigma=0.0682
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 33 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 34 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 35 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 36 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 37 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 38 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 39 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 40 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 41 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 42 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 43 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 44 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 45 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 46 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 47 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 48 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 49 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.0859 | Sigma=1.1096
+-> Melhor Global até agora: 0.996350
+
+--- GERAÇÃO 50 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=0.9964 | Sigma=0.9400
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.0460 | Sigma=0.1944
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.0295 | Sigma=0.5798
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=1.1947 | Sigma=0.7293
+-> Melhor Global até agora: 0.996350
+
+===================================================================================
+                LINHAGEM GENÉTICA DA MELHOR SOLUÇÃO ENCONTRADA
+===================================================================================
+Fitness Final: 0.996350
+
+Gen   | Nascido em | Cruzamento (Pais)      | Posição (x1, x2)       | Fitness   
+-----------------------------------------------------------------------------------
+0     | Ilha 3     | Ancestral Inicial      | [1.004, 1.795]         | 11.4483   
+15    | Ilha 0     | Ilha 0 x Ilha 3        | [0.003, 0.995]         | 0.9964    

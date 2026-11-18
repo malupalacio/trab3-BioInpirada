@@ -1,0 +1,415 @@
+
+--- GERAÇÃO 01 ---
+  Diversidade entre ilhas=2.322 | Taxas de migração=['0.05', '0.05', '0.05', '0.05']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=7.0128 | Sigma=0.0108
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=7.2947 | Sigma=0.1026
+  Ilha 2 (R=2.5): Pop=62 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=68 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.891498
+
+--- GERAÇÃO 02 ---
+  Diversidade entre ilhas=2.506 | Taxas de migração=['0.12', '0.12', '0.12', '0.05']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=7.0128 | Sigma=0.0108
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=7.2947 | Sigma=0.1026
+  Ilha 2 (R=2.5): Pop=58 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=59 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.891498
+
+--- GERAÇÃO 03 ---
+  Diversidade entre ilhas=2.506 | Taxas de migração=['0.19', '0.19', '0.19', '0.12']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=6.7423 | Sigma=0.0115
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=7.2947 | Sigma=0.1026
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=65 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.891498
+
+--- GERAÇÃO 04 ---
+  Diversidade entre ilhas=2.499 | Taxas de migração=['0.05', '0.26', '0.26', '0.19']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=6.5004 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=7.2621 | Sigma=0.2151
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=61 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.891498
+
+--- GERAÇÃO 05 ---
+  Diversidade entre ilhas=2.274 | Taxas de migração=['0.05', '0.05', '0.33', '0.26']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=6.5004 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=7.2621 | Sigma=0.2151
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.891498
+
+--- GERAÇÃO 06 ---
+  Diversidade entre ilhas=2.274 | Taxas de migração=['0.12', '0.12', '0.40', '0.33']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.6350 | Sigma=0.2216
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=7.2621 | Sigma=0.2151
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.635021
+
+--- GERAÇÃO 07 ---
+  Diversidade entre ilhas=1.717 | Taxas de migração=['0.05', '0.19', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.6350 | Sigma=0.2216
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=7.2621 | Sigma=0.2151
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=3.3785 | Sigma=0.5341
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.635021
+
+--- GERAÇÃO 08 ---
+  Diversidade entre ilhas=1.717 | Taxas de migração=['0.12', '0.26', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=2.6350 | Sigma=0.2216
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=2.5649 | Sigma=0.1777
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=2.1438 | Sigma=0.6049
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.143827
+
+--- GERAÇÃO 09 ---
+  Diversidade entre ilhas=1.349 | Taxas de migração=['0.19', '0.05', '0.05', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=2.6350 | Sigma=0.2216
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.5649 | Sigma=0.1777
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.1438 | Sigma=0.6049
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 2.143827
+
+--- GERAÇÃO 10 ---
+  Diversidade entre ilhas=1.349 | Taxas de migração=['0.26', '0.12', '0.12', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.5649 | Sigma=0.1777
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.1438 | Sigma=0.6049
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 11 ---
+  Diversidade entre ilhas=1.661 | Taxas de migração=['0.05', '0.19', '0.19', '0.40']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.5649 | Sigma=0.1777
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.1438 | Sigma=0.6049
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 12 ---
+  Diversidade entre ilhas=1.661 | Taxas de migração=['0.12', '0.26', '0.26', '0.40']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=2.2849 | Sigma=0.2459
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 13 ---
+  Diversidade entre ilhas=1.089 | Taxas de migração=['0.19', '0.05', '0.05', '0.40']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.2849 | Sigma=0.2459
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 14 ---
+  Diversidade entre ilhas=1.089 | Taxas de migração=['0.26', '0.12', '0.12', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.2849 | Sigma=0.2459
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 15 ---
+  Diversidade entre ilhas=1.089 | Taxas de migração=['0.33', '0.19', '0.19', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=2.2849 | Sigma=0.2459
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 16 ---
+  Diversidade entre ilhas=1.089 | Taxas de migração=['0.40', '0.26', '0.26', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=2.2849 | Sigma=0.2459
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 17 ---
+  Diversidade entre ilhas=1.089 | Taxas de migração=['0.40', '0.33', '0.33', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 18 ---
+  Diversidade entre ilhas=1.481 | Taxas de migração=['0.40', '0.05', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=55 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 19 ---
+  Diversidade entre ilhas=1.481 | Taxas de migração=['0.40', '0.12', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 20 ---
+  Diversidade entre ilhas=1.481 | Taxas de migração=['0.40', '0.19', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 21 ---
+  Diversidade entre ilhas=1.481 | Taxas de migração=['0.40', '0.26', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 22 ---
+  Diversidade entre ilhas=1.481 | Taxas de migração=['0.40', '0.33', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=2.0344 | Sigma=1.0937
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 23 ---
+  Diversidade entre ilhas=1.481 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=1.7078 | Sigma=0.4966
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 24 ---
+  Diversidade entre ilhas=1.613 | Taxas de migração=['0.40', '0.40', '0.05', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.3082 | Sigma=0.0109
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.308238
+
+--- GERAÇÃO 25 ---
+  Diversidade entre ilhas=1.276 | Taxas de migração=['0.40', '0.40', '0.05', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.060963
+
+--- GERAÇÃO 26 ---
+  Diversidade entre ilhas=0.965 | Taxas de migração=['0.05', '0.40', '0.12', '0.40']
+  Ilha 0 (R=2.2): Pop=54 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=2.8915 | Sigma=1.4310
+-> Melhor Global até agora: 1.060963
+
+--- GERAÇÃO 27 ---
+  Diversidade entre ilhas=0.965 | Taxas de migração=['0.12', '0.40', '0.19', '0.40']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.651584
+
+--- GERAÇÃO 28 ---
+  Diversidade entre ilhas=0.894 | Taxas de migração=['0.19', '0.40', '0.26', '0.05']
+  Ilha 0 (R=2.2): Pop=55 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=65 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.651584
+
+--- GERAÇÃO 29 ---
+  Diversidade entre ilhas=0.894 | Taxas de migração=['0.26', '0.40', '0.33', '0.12']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.651584
+
+--- GERAÇÃO 30 ---
+  Diversidade entre ilhas=0.894 | Taxas de migração=['0.33', '0.40', '0.40', '0.19']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=63 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.651584
+
+--- GERAÇÃO 31 ---
+  Diversidade entre ilhas=0.894 | Taxas de migração=['0.40', '0.40', '0.40', '0.26']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=1.3328 | Sigma=0.8343
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.651584
+
+--- GERAÇÃO 32 ---
+  Diversidade entre ilhas=0.894 | Taxas de migração=['0.40', '0.40', '0.40', '0.33']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 33 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.05', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=61 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 34 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.12', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 35 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.19', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 36 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.26', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 37 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.33', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 38 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 39 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 40 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 41 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.5931 | Sigma=0.2966
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 42 ---
+  Diversidade entre ilhas=0.903 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 43 ---
+  Diversidade entre ilhas=0.920 | Taxas de migração=['0.40', '0.05', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=55 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.4701 | Sigma=0.2691
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.470061
+
+--- GERAÇÃO 44 ---
+  Diversidade entre ilhas=0.920 | Taxas de migração=['0.40', '0.12', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+--- GERAÇÃO 45 ---
+  Diversidade entre ilhas=0.915 | Taxas de migração=['0.40', '0.19', '0.05', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+--- GERAÇÃO 46 ---
+  Diversidade entre ilhas=0.915 | Taxas de migração=['0.40', '0.26', '0.12', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=56 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+--- GERAÇÃO 47 ---
+  Diversidade entre ilhas=0.915 | Taxas de migração=['0.40', '0.33', '0.19', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+--- GERAÇÃO 48 ---
+  Diversidade entre ilhas=0.915 | Taxas de migração=['0.40', '0.40', '0.26', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+--- GERAÇÃO 49 ---
+  Diversidade entre ilhas=0.915 | Taxas de migração=['0.40', '0.40', '0.33', '0.40']
+  Ilha 0 (R=2.2): Pop=56 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=60 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+--- GERAÇÃO 50 ---
+  Diversidade entre ilhas=0.915 | Taxas de migração=['0.40', '0.40', '0.40', '0.40']
+  Ilha 0 (R=2.2): Pop=57 | Melhor Fitness=1.0610 | Sigma=0.0097
+  Ilha 1 (R=2.25): Pop=57 | Melhor Fitness=1.3209 | Sigma=0.4233
+  Ilha 2 (R=2.5): Pop=59 | Melhor Fitness=0.3434 | Sigma=0.2342
+  Ilha 3 (R=2.75): Pop=62 | Melhor Fitness=0.6516 | Sigma=1.1123
+-> Melhor Global até agora: 0.343353
+
+===================================================================================
+                LINHAGEM GENÉTICA DA MELHOR SOLUÇÃO ENCONTRADA
+===================================================================================
+Fitness Final: 0.343353
+
+Gen   | Nascido em | Cruzamento (Pais)      | Posição (x1, x2)       | Fitness   
+-----------------------------------------------------------------------------------
+0     | Ilha 2     | Ancestral Inicial      | [-3.726, 2.149]        | 34.0524   
+4     | Ilha 2     | Ilha 2 x Ilha 0        | [-0.342, -0.087]       | 17.0637   
+6     | Ilha 2     | Ilha 2 (Local)         | [1.892, 0.057]         | 6.4310    
+24    | Ilha 2     | Ilha 2 (Local)         | [1.045, -0.028]        | 1.6554    
+25    | Ilha 2     | Ilha 2 (Local)         | [-0.188, 0.085]        | 7.6039    
+38    | Ilha 2     | Ilha 2 (Local)         | [-0.169, 0.184]        | 11.1741   
+44    | Ilha 2     | Ilha 2 x Ilha 1        | [-0.027, -0.032]       | 0.3434    

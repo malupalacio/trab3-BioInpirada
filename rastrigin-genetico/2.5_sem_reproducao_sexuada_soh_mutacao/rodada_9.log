@@ -1,0 +1,53 @@
+/home/joao/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+
+--- GERAÇÃO 00 ---
+  Ilha 0 (R=2.2): Pop=56 | Melhor=11.8622 | Médio=44.3637 | Sigma=0.0158 | Diversidade=0.7881Dist.Ótimo=3.0308
+  Ilha 1 (R=2.25): Pop=57 | Melhor=8.2134 | Médio=41.7461 | Sigma=0.1051 | Diversidade=1.5014Dist.Ótimo=0.2113
+  Ilha 2 (R=2.5): Pop=62 | Melhor=22.3810 | Médio=41.8175 | Sigma=0.4803 | Diversidade=0.9335Dist.Ótimo=4.3672
+  Ilha 3 (R=2.75): Pop=67 | Melhor=2.8681 | Médio=41.5783 | Sigma=1.4078 | Diversidade=1.7585Dist.Ótimo=1.0678
+-> Melhor Global até agora: 2.868113
+
+--- GERAÇÃO 10 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor=7.5797 | Médio=31.3381 | Sigma=0.1549 | Diversidade=1.6942Dist.Ótimo=2.2858
+  Ilha 1 (R=2.25): Pop=56 | Melhor=2.4838 | Médio=22.7515 | Sigma=0.2682 | Diversidade=2.3945Dist.Ótimo=0.9094
+  Ilha 2 (R=2.5): Pop=60 | Melhor=3.3608 | Médio=26.4358 | Sigma=0.4447 | Diversidade=1.4745Dist.Ótimo=0.1335
+  Ilha 3 (R=2.75): Pop=63 | Melhor=2.8681 | Médio=22.6018 | Sigma=1.1363 | Diversidade=2.0984Dist.Ótimo=1.0678
+-> Melhor Global até agora: 2.483809
+
+--- GERAÇÃO 20 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor=4.2355 | Médio=21.9485 | Sigma=0.3438 | Diversidade=1.4320Dist.Ótimo=2.0028
+  Ilha 1 (R=2.25): Pop=56 | Melhor=1.3195 | Médio=14.5632 | Sigma=0.3198 | Diversidade=1.2777Dist.Ótimo=1.0034
+  Ilha 2 (R=2.5): Pop=60 | Melhor=1.7728 | Médio=19.8029 | Sigma=0.4188 | Diversidade=1.3827Dist.Ótimo=0.9696
+  Ilha 3 (R=2.75): Pop=63 | Melhor=2.8681 | Médio=16.5083 | Sigma=0.9805 | Diversidade=1.8589Dist.Ótimo=1.0678
+-> Melhor Global até agora: 1.319490
+
+--- GERAÇÃO 30 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor=4.2355 | Médio=17.2098 | Sigma=0.5224 | Diversidade=1.3960Dist.Ótimo=2.0028
+  Ilha 1 (R=2.25): Pop=56 | Melhor=0.6788 | Médio=11.1162 | Sigma=0.2828 | Diversidade=1.2105Dist.Ótimo=0.0587
+  Ilha 2 (R=2.5): Pop=60 | Melhor=1.7728 | Médio=16.4318 | Sigma=0.4095 | Diversidade=1.3949Dist.Ótimo=0.9696
+  Ilha 3 (R=2.75): Pop=63 | Melhor=1.2091 | Médio=13.5562 | Sigma=0.8838 | Diversidade=1.6299Dist.Ótimo=1.0168
+-> Melhor Global até agora: 0.678841
+
+--- GERAÇÃO 40 ---
+  Ilha 0 (R=2.2): Pop=55 | Melhor=2.6010 | Médio=13.0429 | Sigma=0.5393 | Diversidade=1.3149Dist.Ótimo=1.4610
+  Ilha 1 (R=2.25): Pop=56 | Melhor=0.6788 | Médio=8.8035 | Sigma=0.2962 | Diversidade=1.0136Dist.Ótimo=0.0587
+  Ilha 2 (R=2.5): Pop=60 | Melhor=1.7728 | Médio=13.3958 | Sigma=0.4118 | Diversidade=1.3931Dist.Ótimo=0.9696
+  Ilha 3 (R=2.75): Pop=63 | Melhor=1.2091 | Médio=11.9317 | Sigma=0.8304 | Diversidade=1.4556Dist.Ótimo=1.0168
+-> Melhor Global até agora: 0.678841
+
+===================================================================================
+                LINHAGEM GENÉTICA DA MELHOR SOLUÇÃO ENCONTRADA
+===================================================================================
+Fitness Final: 0.678841
+
+Gen   | Nascido em | Cruzamento (Pais)      | Posição (x1, x2)       | Fitness   
+-----------------------------------------------------------------------------------
+0     | Ilha 1     | Ancestral Inicial      | [3.430, -3.945]        | 46.9718   
+1     | Ilha 1     | Ilha 1 x Ilha 0        | [-0.146, -3.748]       | 28.0993   
+6     | Ilha 1     | Ilha 1 (Local)         | [-0.770, -1.188]       | 16.9858   
+8     | Ilha 1     | Ilha 1 (Local)         | [0.053, -1.158]        | 6.4033    
+13    | Ilha 1     | Ilha 1 (Local)         | [-0.071, -0.826]       | 7.0519    
+24    | Ilha 1     | Ilha 1 (Local)         | [0.103, 0.057]         | 2.6901    
+24    | Ilha 1     | Ilha 1 (Local)         | [0.047, -0.035]        | 0.6788    
+Gráfico de diagnóstico salvo em: graficos/diagnostico_run_9.png
