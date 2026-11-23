@@ -1,0 +1,398 @@
+import argparse
+import random
+import math
+import statistics
+
+# --- CONFIGURAÇÕES E PARÂMETROS ---
+N_ILHAS = 4
+TEMP_SIMULACAO = 50       # Número de gerações
+TAMANHO_GRADE = 10        # Grade 10x10 = 100 posições por ilha
+DIMENSOES = 2             # Função 2D (x1, x2)
+LIMITES = (-5.12, 5.12)   # Limites do domínio da Rastrigin
+
+R_INICIAL = [2.8, 2.9, 3.0, 3.1]  # Promove oscilação e renovação nas primeiras gerações
+R_FINAL = [1.8, 2.0, 2.2, 2.3]    # Promove estabilidade e convergência no final
+D = 0.2  # Taxa de migração
+X_INICIAL = [0.5, 0.5, 0.5, 0.5]
+SIGMAS_BASE = [0.01, 0.1, 0.5, 1.5]
+
+# --- AVALIAÇÃO COMPARATIVA (mesmo protocolo do pso_ilhas.py) ---
+LIMIAR_SUCESSO = 1e-2     # fitness <= limiar conta como "sucesso"
+
+# Migração adaptativa: cada ilha recebe uma taxa própria a cada geração.
+D_MIN = 0.05
+D_MAX = 0.40
+GERACOES_PARA_MIGRACAO_MAXIMA = 5
+LIMIAR_MELHORA = 1e-3
+LIMIAR_SEMELHANCA = 0.50
+FATOR_REDUCAO_SEMELHANCA = 0.50
+
+def rastrigin(x):
+    A = 10
+    return A * len(x) + sum([(xi**2 - A * math.cos(2 * math.pi * xi)) for xi in x])
+
+
+class Contador:
+    """Conta avaliações da função objetivo e registra quando o limiar é atingido."""
+
+    def __init__(self):
+        self.n = 0
+        self.melhor = float("inf")
+        self.aval_ate_limiar = None
+
+    def avaliar(self, x):
+        self.n += 1
+        f = rastrigin(x)
+        if f < self.melhor:
+            self.melhor = f
+            if self.aval_ate_limiar is None and f <= LIMIAR_SUCESSO:
+                self.aval_ate_limiar = self.n
+        return f
+
+
+# Estado global reiniciado a cada execução em executar(seed).
+rng = random.Random()
+cont = Contador()
+
+def criar_individuo(ilha):
+    posicao = [rng.uniform(LIMITES[0], LIMITES[1]) for _ in range(DIMENSOES)]
+    sigma = [SIGMAS_BASE[ilha] * rng.uniform(0.8, 1.2) for _ in range(DIMENSOES)]
+    fit = cont.avaliar(posicao)
+    
+    ind = {
+        "x": posicao, 
+        "sigma": sigma, 
+        "fitness": fit,
+        "historico": [{
+            "geracao": 0, 
+            "ilha_origem": ilha,
+            "pais": "Ancestral Inicial", 
+            "x": posicao.copy(), 
+            "sigma": sigma, 
+            "fitness": fit
+        }]
+    }
+    return ind
+
+def criar_grade():
+    return [[None for _ in range(TAMANHO_GRADE)] for _ in range(TAMANHO_GRADE)]
+
+def obter_posicoes_ocupadas(grade):
+    return [(i, j) for i in range(TAMANHO_GRADE) for j in range(TAMANHO_GRADE) if grade[i][j] is not None]
+
+def obter_posicoes_vazias(grade):
+    return [(i, j) for i in range(TAMANHO_GRADE) for j in range(TAMANHO_GRADE) if grade[i][j] is None]
+
+
+def melhor_individuo(grade):
+    ocupados = obter_posicoes_ocupadas(grade)
+    if not ocupados:
+        return None
+    return min((grade[i][j] for i, j in ocupados), key=lambda individuo: individuo["fitness"])
+
+def diversidade_entre_ilhas(grades):
+    """Calcula a distância média entre as melhores soluções das ilhas."""
+    melhores = [melhor_individuo(grade) for grade in grades]
+    melhores = [individuo for individuo in melhores if individuo is not None]
+    if len(melhores) < 2:
+        return float("inf")
+
+    distancias = []
+    for i in range(len(melhores)):
+        for j in range(i + 1, len(melhores)):
+            distancia = math.sqrt(sum(
+                (a - b) ** 2 for a, b in zip(melhores[i]["x"], melhores[j]["x"])
+            ))
+            distancias.append(distancia)
+    return sum(distancias) / len(distancias)
+
+def calcular_taxas_migracao(estagnacoes, diversidade):
+    """Aumenta a migração em ilhas estagnadas e a reduz quando há pouca diversidade."""
+    taxas = []
+    for estagnacao in estagnacoes:
+        progresso_estagnacao = min(1.0, estagnacao / GERACOES_PARA_MIGRACAO_MAXIMA)
+        taxa = D_MIN + (D_MAX - D_MIN) * progresso_estagnacao
+
+        if diversidade <= LIMIAR_SEMELHANCA:
+            taxa = D_MIN + (taxa - D_MIN) * FATOR_REDUCAO_SEMELHANCA
+        taxas.append(taxa)
+    return taxas
+
+def atualizar_estagnacoes(grades, melhores_anteriores, estagnacoes):
+    """Conta gerações sem melhora relevante do melhor indivíduo de cada ilha."""
+    for i, grade in enumerate(grades):
+        melhor = melhor_individuo(grade)
+        if melhor is None:
+            continue
+
+        if melhor["fitness"] < melhores_anteriores[i] - LIMIAR_MELHORA:
+            estagnacoes[i] = 0
+        else:
+            estagnacoes[i] += 1
+        melhores_anteriores[i] = melhor["fitness"]
+
+# --- REPRODUÇÃO COM RASTREAMENTO DETALHADO ---
+def reproduzir(pai1, pai2, ilha_p1, ilha_p2, ilha_filho, geracao_atual):
+    # Taxas de aprendizagem dinâmicas baseadas no numero de dimensões
+    tau_global = 1.0 / math.sqrt(2 * DIMENSOES)
+    tau_local = 1.0 / math.sqrt(2 * math.sqrt(DIMENSOES))
+    fator_global = math.exp(rng.gauss(0, tau_global))
+    
+    novo_x = []
+    novo_sigma = []
+    
+    for k in range(DIMENSOES):
+        # Media dos sigmas dos pais na dimensão k
+        sigma_medio = 0.5 * (pai1["sigma"][k] + pai2["sigma"][k])
+        
+        # Mutação do Sigma na dimensão k
+        sigma_k = sigma_medio * fator_global * math.exp(rng.gauss(0, tau_local))
+        novo_sigma.append(sigma_k)
+        
+        # Media da posição dos pais na dimensão k mutada pelo novo sigma
+        x_k = 0.5 * (pai1["x"][k] + pai2["x"][k]) + rng.gauss(0, sigma_k)
+        
+        # Garante que não sai dos limites da Rastrigin
+        x_k = max(LIMITES[0], min(LIMITES[1], x_k))
+        novo_x.append(x_k)
+        
+    fit = cont.avaliar(novo_x)
+    
+    # Seleciona o histórico do pai mais apto para continuar a linhagem
+    pai_principal = pai1 if pai1["fitness"] < pai2["fitness"] else pai2
+    novo_historico = [dict(passo) for passo in pai_principal["historico"]]
+    
+    # Registra o cruzamento atual
+    origem_str = f"Ilha {ilha_p1} x Ilha {ilha_p2}" if ilha_p1 != ilha_p2 else f"Ilha {ilha_p1} (Local)"
+    
+    novo_historico.append({
+        "geracao": geracao_atual,
+        "ilha_origem": ilha_filho,
+        "pais": origem_str,
+        "x": novo_x.copy(),
+        "sigma": novo_sigma,
+        "fitness": fit
+    })
+    
+    return {"x": novo_x, "sigma": novo_sigma, "fitness": fit, "historico": novo_historico}
+
+def nascer_individuos(grade, ilha, quantidade, grades, geracao_atual, taxa_migracao):
+    vazios = rng.sample(obter_posicoes_vazias(grade), quantidade)
+    
+    for i, j in vazios:
+        eh_migracao = rng.random() < taxa_migracao
+        
+        if eh_migracao:
+            outras = [k for k in range(N_ILHAS) if k != ilha]
+            ilha_ext = rng.choice(outras)
+            ocupados_ext = obter_posicoes_ocupadas(grades[ilha_ext])
+            ocupados_loc = obter_posicoes_ocupadas(grade)
+            
+            if ocupados_loc and ocupados_ext:
+                pos_loc = rng.choice(ocupados_loc)
+                pos_ext = rng.choice(ocupados_ext)
+                p_loc = grade[pos_loc[0]][pos_loc[1]]
+                p_ext = grades[ilha_ext][pos_ext[0]][pos_ext[1]]
+                
+                if p_loc is not None and p_ext is not None:
+                    grade[i][j] = reproduzir(p_loc, p_ext, ilha, ilha_ext, ilha, geracao_atual)
+                else:
+                    grade[i][j] = criar_individuo(ilha)
+            else:
+                grade[i][j] = criar_individuo(ilha)
+        else:
+            ocupados = obter_posicoes_ocupadas(grade)
+            if len(ocupados) >= 2:
+                p1_pos, p2_pos = rng.sample(ocupados, 2)
+                p1 = grade[p1_pos[0]][p1_pos[1]]
+                p2 = grade[p2_pos[0]][p2_pos[1]]
+                
+                if p1 is not None and p2 is not None:
+                    grade[i][j] = reproduzir(p1, p2, ilha, ilha, ilha, geracao_atual)
+                else:
+                    grade[i][j] = criar_individuo(ilha)
+            else:
+                grade[i][j] = criar_individuo(ilha)
+
+def remover_individuos(grade, quantidade):
+    ocupados = obter_posicoes_ocupadas(grade)
+    ocupados.sort(key=lambda pos: grade[pos[0]][pos[1]]["fitness"], reverse=True)
+    for i, j in ocupados[:quantidade]:
+        grade[i][j] = None
+
+def atualizar_grade(grade, x_novo, ilha, grades, geracao_atual, taxas_migracao):
+    esperados = round(x_novo * TAMANHO_GRADE * TAMANHO_GRADE)
+    atuais = len(obter_posicoes_ocupadas(grade))
+    dif = esperados - atuais
+    
+    if dif > 0:
+        nascer_individuos(grade, ilha, dif, grades, geracao_atual, taxas_migracao)
+    elif dif < 0:
+        remover_individuos(grade, abs(dif))
+        
+    # Turnover Geracional (10%)
+    ocupados = obter_posicoes_ocupadas(grade)
+    if len(ocupados) > 5:
+        qtd_turnover = max(1, int(len(ocupados) * 0.10))
+        remover_individuos(grade, qtd_turnover)
+        nascer_individuos(grade, ilha, qtd_turnover, grades, geracao_atual, taxas_migracao)
+
+def executar(seed, verbose=False):
+    """Uma execução completa do EA em ilhas. Retorna as mesmas métricas do pso_ilhas.py."""
+    global cont
+    rng.seed(seed)
+    cont = Contador()
+
+    X = X_INICIAL.copy()
+    grades = [criar_grade() for _ in range(N_ILHAS)]
+
+    for i in range(N_ILHAS):
+        qtd = round(X[i] * TAMANHO_GRADE * TAMANHO_GRADE)
+        posicoes = rng.sample([(r, c) for r in range(TAMANHO_GRADE) for c in range(TAMANHO_GRADE)], qtd)
+        for r, c in posicoes:
+            grades[i][r][c] = criar_individuo(i)
+
+    melhor_global = None
+    melhor_por_ilha = [float("inf")] * N_ILHAS
+    curva = []        # melhor global ao fim de cada geração
+    curva_aval = []   # nº de avaliações acumuladas ao fim de cada geração
+    melhores_anteriores = [float("inf")] * N_ILHAS
+    estagnacoes = [0] * N_ILHAS
+
+    for g in range(TEMP_SIMULACAO):
+        # Calcula o R atual para esta geração específica
+        fator = g / (TEMP_SIMULACAO - 1) if TEMP_SIMULACAO > 1 else 1
+        R_atual = [R_INICIAL[i] - (R_INICIAL[i] - R_FINAL[i]) * fator for i in range(N_ILHAS)]
+
+        # calculo de taxa migração adaptativa
+        atualizar_estagnacoes(grades, melhores_anteriores, estagnacoes)
+        diversidade = diversidade_entre_ilhas(grades)
+        taxas_migracao = calcular_taxas_migracao(estagnacoes, diversidade)
+
+        crescimento = [R_atual[i] * X[i] * (1 - X[i]) for i in range(N_ILHAS)]
+        X_novo = []
+        for i in range(N_ILHAS):
+            imigrantes = sum(crescimento[j] for j in range(N_ILHAS) if j != i)
+            taxa = taxas_migracao[i]
+            xi_novo = (1 - D) * crescimento[i] + (D / (N_ILHAS - 1)) * imigrantes
+            X_novo.append(max(0.01, min(0.99, xi_novo)))
+        X = X_novo
+
+        for i in range(N_ILHAS):
+            atualizar_grade(grades[i], X[i], i, grades, g + 1, taxas_migracao[i])
+
+        if verbose:
+            print(f"\n--- GERAÇÃO {g+1:02d} ---")
+            print(
+                f"  Diversidade entre ilhas={diversidade:.3f} | "
+                f"Taxas de migração={[f'{taxa:.2f}' for taxa in taxas_migracao]}"
+            )
+        for i in range(N_ILHAS):
+            pos_ocupadas = obter_posicoes_ocupadas(grades[i])
+            if not pos_ocupadas:
+                continue
+
+            melhor_ilha = min([grades[i][r][c] for r, c in pos_ocupadas], key=lambda ind: ind["fitness"])
+            melhor_por_ilha[i] = min(melhor_por_ilha[i], melhor_ilha["fitness"])
+
+            if melhor_global is None or melhor_ilha["fitness"] < melhor_global["fitness"]:
+                melhor_global = {
+                    "x": melhor_ilha["x"].copy(),
+                    "sigma": melhor_ilha["sigma"],
+                    "fitness": melhor_ilha["fitness"],
+                    "historico": [dict(p) for p in melhor_ilha["historico"]]
+                }
+
+            if verbose:
+                sigmas_str = ", ".join([f"{s:.4f}" for s in melhor_ilha['sigma']])
+                print(f"Ilha {i} (R={R_atual[i]:.3f}): Pop={len(pos_ocupadas):02d} | Melhor Fitness={melhor_ilha['fitness']:.4f} | Sigmas=[{sigmas_str}]")
+
+        if verbose:
+            print(f"-> Melhor Global até agora: {melhor_global['fitness']:.6f}")
+        curva.append(melhor_global["fitness"])
+        curva_aval.append(cont.n)
+
+    if verbose:
+        # --- IMPRESSÃO DO HISTÓRICO DA LINHAGEM ---
+        print("\n===================================================================================")
+        print("                LINHAGEM GENÉTICA DA MELHOR SOLUÇÃO ENCONTRADA")
+        print("===================================================================================")
+        print(f"Fitness Final: {melhor_global['fitness']:.6f}\n")
+        print(f"{'Gen':<5} | {'Nascido em':<10} | {'Cruzamento (Pais)':<22} | {'Posição (x1, x2)':<22} | {'Fitness':<10}")
+        print("-" * 83)
+
+        for passo in melhor_global["historico"]:
+            pos_str = f"[{passo['x'][0]:.3f}, {passo['x'][1]:.3f}]"
+            ilha_str = f"Ilha {passo['ilha_origem']}"
+            print(f"{passo['geracao']:<5} | {ilha_str:<10} | {passo['pais']:<22} | {pos_str:<22} | {passo['fitness']:<10.4f}")
+
+    return {
+        "fitness": melhor_global["fitness"],
+        "x": melhor_global["x"],
+        "avaliacoes": cont.n,
+        "aval_ate_limiar": cont.aval_ate_limiar,
+        "curva": curva,
+        "curva_aval": curva_aval,
+        "por_ilha": melhor_por_ilha,
+    }
+
+
+def resumir(nome, resultados):
+    fits = [r["fitness"] for r in resultados]
+    avals = [r["avaliacoes"] for r in resultados]
+    sucessos = [r["aval_ate_limiar"] for r in resultados if r["aval_ate_limiar"] is not None]
+    print(f"\n[{nome}]")
+    print(f"  Avaliações por execução : média {statistics.mean(avals):.0f} "
+          f"(min {min(avals)}, max {max(avals)})")
+    print(f"  Fitness final  média    : {statistics.mean(fits):.6f}")
+    print(f"                 desvio   : {statistics.pstdev(fits):.6f}")
+    print(f"                 mediana  : {statistics.median(fits):.6f}")
+    print(f"                 melhor   : {min(fits):.6f}")
+    print(f"                 pior     : {max(fits):.6f}")
+    print(f"  Taxa de sucesso (<= {LIMIAR_SUCESSO}): {len(sucessos)}/{len(resultados)}")
+    if sucessos:
+        print(f"  Avaliações até o limiar (média dos sucessos): {statistics.mean(sucessos):.0f}")
+    medias_ilha = [statistics.mean(r["por_ilha"][i] for r in resultados) for i in range(N_ILHAS)]
+    print("  Melhor fitness médio por ilha:")
+    for i, m in enumerate(medias_ilha):
+        print(f"    Ilha {i} (sigma base {SIGMAS_BASE[i]}): {m:.6f}")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--runs", type=int, default=30)
+    ap.add_argument("--seed", type=int, default=0, help="semente base (run i usa seed+i)")
+    ap.add_argument("--verbose", action="store_true", help="1 execução detalhada (com linhagem)")
+    ap.add_argument("--csv", type=str, default=None, help="salva curvas médias de convergência")
+    ap.add_argument("--saida", type=str, default=None,
+                    help="salva métricas por execução (seed,fitness,avaliacoes,aval_ate_limiar)")
+    args = ap.parse_args()
+
+    if args.verbose:
+        r = executar(args.seed, verbose=True)
+        print(f"\nAvaliações: {r['avaliacoes']} | aval_ate_limiar: {r['aval_ate_limiar']}")
+        return
+
+    resultados = [executar(args.seed + i) for i in range(args.runs)]
+    resumir("EA em ilhas", resultados)
+
+    if args.saida:
+        with open(args.saida, "w") as f:
+            f.write("seed,fitness,avaliacoes,aval_ate_limiar\n")
+            for i, r in enumerate(resultados):
+                aut = "" if r["aval_ate_limiar"] is None else r["aval_ate_limiar"]
+                f.write(f"{args.seed + i},{r['fitness']:.10f},{r['avaliacoes']},{aut}\n")
+        print(f"Métricas por execução salvas em {args.saida}")
+
+    if args.csv:
+        with open(args.csv, "w") as f:
+            f.write("geracao,EA,avaliacoes_media\n")
+            for g in range(TEMP_SIMULACAO):
+                f.write(f"{g + 1},"
+                        f"{statistics.mean(r['curva'][g] for r in resultados):.8f},"
+                        f"{statistics.mean(r['curva_aval'][g] for r in resultados):.0f}\n")
+        print(f"Curvas médias salvas em {args.csv}")
+
+
+if __name__ == "__main__":
+    main()
