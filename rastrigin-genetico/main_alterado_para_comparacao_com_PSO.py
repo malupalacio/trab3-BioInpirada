@@ -1,23 +1,20 @@
-import argparse
-import random
 import math
-import statistics
+import random
+
+from comum import DIMENSOES, LIMITES, Contador, criar_parser, rodar_varias
 
 # --- CONFIGURAÇÕES E PARÂMETROS ---
 N_ILHAS = 4
-TEMP_SIMULACAO = 50       # Número de gerações
-TAMANHO_GRADE = 10        # Grade 10x10 = 100 posições por ilha
-DIMENSOES = 2             # Função 2D (x1, x2)
-LIMITES = (-5.12, 5.12)   # Limites do domínio da Rastrigin
+# TEMP_SIMULACAO = 50       # Número de gerações padrao (resultados: Taxa de sucesso (<= 0.01): 1/30)
+# TAMANHO_GRADE = 10        # Tamanho grade padrao (resultados: Taxa de sucesso (<= 0.01): 1/30)
+TEMP_SIMULACAO = 320       # Número de gerações aumentado pra subir ao patamar de quantd. de execuçẽos do PSO
+TAMANHO_GRADE = 25        # Tamanho grade aumentado pra subir ao patamar de quantd. de execuçẽos do PSO
 
 R_INICIAL = [2.8, 2.9, 3.0, 3.1]  # Promove oscilação e renovação nas primeiras gerações
 R_FINAL = [1.8, 2.0, 2.2, 2.3]    # Promove estabilidade e convergência no final
 D = 0.2  # Taxa de migração
 X_INICIAL = [0.5, 0.5, 0.5, 0.5]
 SIGMAS_BASE = [0.01, 0.1, 0.5, 1.5]
-
-# --- AVALIAÇÃO COMPARATIVA (mesmo protocolo do pso_ilhas.py) ---
-LIMIAR_SUCESSO = 1e-2     # fitness <= limiar conta como "sucesso"
 
 # Migração adaptativa: cada ilha recebe uma taxa própria a cada geração.
 D_MIN = 0.05
@@ -26,29 +23,6 @@ GERACOES_PARA_MIGRACAO_MAXIMA = 5
 LIMIAR_MELHORA = 1e-3
 LIMIAR_SEMELHANCA = 0.50
 FATOR_REDUCAO_SEMELHANCA = 0.50
-
-def rastrigin(x):
-    A = 10
-    return A * len(x) + sum([(xi**2 - A * math.cos(2 * math.pi * xi)) for xi in x])
-
-
-class Contador:
-    """Conta avaliações da função objetivo e registra quando o limiar é atingido."""
-
-    def __init__(self):
-        self.n = 0
-        self.melhor = float("inf")
-        self.aval_ate_limiar = None
-
-    def avaliar(self, x):
-        self.n += 1
-        f = rastrigin(x)
-        if f < self.melhor:
-            self.melhor = f
-            if self.aval_ate_limiar is None and f <= LIMIAR_SUCESSO:
-                self.aval_ate_limiar = self.n
-        return f
-
 
 # Estado global reiniciado a cada execução em executar(seed).
 rng = random.Random()
@@ -238,7 +212,7 @@ def atualizar_grade(grade, x_novo, ilha, grades, geracao_atual, taxas_migracao):
         nascer_individuos(grade, ilha, qtd_turnover, grades, geracao_atual, taxas_migracao)
 
 def executar(seed, verbose=False):
-    """Uma execução completa do EA em ilhas. Retorna as mesmas métricas do pso_ilhas.py."""
+    """Uma execução completa do Genetico em ilhas. Retorna as mesmas métricas do PSO (comum.py)."""
     global cont
     rng.seed(seed)
     cont = Contador()
@@ -253,9 +227,6 @@ def executar(seed, verbose=False):
             grades[i][r][c] = criar_individuo(i)
 
     melhor_global = None
-    melhor_por_ilha = [float("inf")] * N_ILHAS
-    curva = []        # melhor global ao fim de cada geração
-    curva_aval = []   # nº de avaliações acumuladas ao fim de cada geração
     melhores_anteriores = [float("inf")] * N_ILHAS
     estagnacoes = [0] * N_ILHAS
 
@@ -293,7 +264,6 @@ def executar(seed, verbose=False):
                 continue
 
             melhor_ilha = min([grades[i][r][c] for r, c in pos_ocupadas], key=lambda ind: ind["fitness"])
-            melhor_por_ilha[i] = min(melhor_por_ilha[i], melhor_ilha["fitness"])
 
             if melhor_global is None or melhor_ilha["fitness"] < melhor_global["fitness"]:
                 melhor_global = {
@@ -309,8 +279,6 @@ def executar(seed, verbose=False):
 
         if verbose:
             print(f"-> Melhor Global até agora: {melhor_global['fitness']:.6f}")
-        curva.append(melhor_global["fitness"])
-        curva_aval.append(cont.n)
 
     if verbose:
         # --- IMPRESSÃO DO HISTÓRICO DA LINHAGEM ---
@@ -326,72 +294,19 @@ def executar(seed, verbose=False):
             ilha_str = f"Ilha {passo['ilha_origem']}"
             print(f"{passo['geracao']:<5} | {ilha_str:<10} | {passo['pais']:<22} | {pos_str:<22} | {passo['fitness']:<10.4f}")
 
-    return {
-        "fitness": melhor_global["fitness"],
-        "x": melhor_global["x"],
-        "avaliacoes": cont.n,
-        "aval_ate_limiar": cont.aval_ate_limiar,
-        "curva": curva,
-        "curva_aval": curva_aval,
-        "por_ilha": melhor_por_ilha,
-    }
-
-
-def resumir(nome, resultados):
-    fits = [r["fitness"] for r in resultados]
-    avals = [r["avaliacoes"] for r in resultados]
-    sucessos = [r["aval_ate_limiar"] for r in resultados if r["aval_ate_limiar"] is not None]
-    print(f"\n[{nome}]")
-    print(f"  Avaliações por execução : média {statistics.mean(avals):.0f} "
-          f"(min {min(avals)}, max {max(avals)})")
-    print(f"  Fitness final  média    : {statistics.mean(fits):.6f}")
-    print(f"                 desvio   : {statistics.pstdev(fits):.6f}")
-    print(f"                 mediana  : {statistics.median(fits):.6f}")
-    print(f"                 melhor   : {min(fits):.6f}")
-    print(f"                 pior     : {max(fits):.6f}")
-    print(f"  Taxa de sucesso (<= {LIMIAR_SUCESSO}): {len(sucessos)}/{len(resultados)}")
-    if sucessos:
-        print(f"  Avaliações até o limiar (média dos sucessos): {statistics.mean(sucessos):.0f}")
-    medias_ilha = [statistics.mean(r["por_ilha"][i] for r in resultados) for i in range(N_ILHAS)]
-    print("  Melhor fitness médio por ilha:")
-    for i, m in enumerate(medias_ilha):
-        print(f"    Ilha {i} (sigma base {SIGMAS_BASE[i]}): {m:.6f}")
+    return cont.resultado(seed)
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--runs", type=int, default=30)
-    ap.add_argument("--seed", type=int, default=0, help="semente base (run i usa seed+i)")
-    ap.add_argument("--verbose", action="store_true", help="1 execução detalhada (com linhagem)")
-    ap.add_argument("--csv", type=str, default=None, help="salva curvas médias de convergência")
-    ap.add_argument("--saida", type=str, default=None,
-                    help="salva métricas por execução (seed,fitness,avaliacoes,aval_ate_limiar)")
+    ap = criar_parser("Genetico em ilhas na Rastrigin 2D")
     args = ap.parse_args()
 
     if args.verbose:
-        r = executar(args.seed, verbose=True)
-        print(f"\nAvaliações: {r['avaliacoes']} | aval_ate_limiar: {r['aval_ate_limiar']}")
+        executar(args.seed, verbose=True)
+        print(f"\nAvaliações: {cont.n} | Melhor fitness avaliado: {cont.melhor:.6f}")
         return
 
-    resultados = [executar(args.seed + i) for i in range(args.runs)]
-    resumir("EA em ilhas", resultados)
-
-    if args.saida:
-        with open(args.saida, "w") as f:
-            f.write("seed,fitness,avaliacoes,aval_ate_limiar\n")
-            for i, r in enumerate(resultados):
-                aut = "" if r["aval_ate_limiar"] is None else r["aval_ate_limiar"]
-                f.write(f"{args.seed + i},{r['fitness']:.10f},{r['avaliacoes']},{aut}\n")
-        print(f"Métricas por execução salvas em {args.saida}")
-
-    if args.csv:
-        with open(args.csv, "w") as f:
-            f.write("geracao,EA,avaliacoes_media\n")
-            for g in range(TEMP_SIMULACAO):
-                f.write(f"{g + 1},"
-                        f"{statistics.mean(r['curva'][g] for r in resultados):.8f},"
-                        f"{statistics.mean(r['curva_aval'][g] for r in resultados):.0f}\n")
-        print(f"Curvas médias salvas em {args.csv}")
+    rodar_varias("Genetico", executar, args)
 
 
 if __name__ == "__main__":

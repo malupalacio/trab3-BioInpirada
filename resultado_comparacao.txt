@@ -1,0 +1,18 @@
+joao@hestia:~/trab3-BioInpirada$ python3 comparar.py 
+
+Fitness final (menor é melhor; sucesso = fitness <= 0.01)
+Algoritmo          Runs  Aval.      Média     Desvio    Mediana     Melhor       Pior  Sucesso  Aval→limiar
+-----------------------------------------------------------------------------------------------------------
+EA                   30  51405    0.00000    0.00000    0.00000    0.00000    0.00000    30/30        12699
+Genetico             30   1596    0.18253    0.15700    0.14216    0.00526    0.53267     1/30         1566
+PSO_anel             30  10200    0.00000    0.00000    0.00000    0.00000    0.00000    30/30         3016
+PSO_sem_migracao     30  10200    0.00000    0.00001    0.00000    0.00000    0.00004    30/30         3434
+(Aval→limiar = média de avaliações até atingir o limiar, só entre as execuções que atingiram)
+
+Teste de Wilcoxon da soma de postos (Mann-Whitney U), fitness final, bicaudal:
+  EA vs Genetico: p = 3.018e-11  (diferença significativa a 5%)
+  EA vs PSO_anel: p = 1.555e-07  (diferença significativa a 5%)
+  EA vs PSO_sem_migracao: p = 0.07365  (sem diferença significativa a 5%)
+  Genetico vs PSO_anel: p = 2.101e-11  (diferença significativa a 5%)
+  Genetico vs PSO_sem_migracao: p = 2.514e-11  (diferença significativa a 5%)
+  PSO_anel vs PSO_sem_migracao: p = 0.07946  (sem diferença significativa a 5%)
