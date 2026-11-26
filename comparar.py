@@ -4,6 +4,26 @@ import itertools
 import os
 import statistics
 
+'''
+Para comparar os métodos, eu peguei as seguintes métricas ao longo das 50 execuções:
+total de avaliações (Aval.), média, desvio padrão, mediana, melhor e pior fitness, 
+taxa de sucesso e quantidade média de avaliações até atingir o limiar (Aval→limiar).
+
+Mas como como os algoritmos são estocásticos e suas execuções são independentes (não pareadas),
+olhar apenas para médias ou medianas isoladas pode induzir ao erro, porque um algoritmo pode parecer
+superior a outro apenas por sorte, e não por um ganho consistente.
+
+
+Então pra evitar esse tipo de engano eu pesquisei metricas melhores que pudessem nos ajudar,
+dai eu encontrei o teste de Mann-Whitney U, que basicamente ordena todos os resultados dos dois métodos
+em conjunto e verifica se um deles tende a obter posições melhores que o outro de forma consistente.
+
+Para decidir se essa diferença de desempenho é relevante, usamos um nível de significância de 5% (p < 0.05).
+O p (p-valor) indica a chance de uma diferença tão grande quanto a observada acontecer por pura sorte
+se os dois métodos tivessem, na prática, o mesmo desempenho: se p < 0.05, assumimos que há diferença
+estatística real; se p >= 0.05, não há evidência suficiente para descartar a sorte.
+'''
+
 LIMIAR_SUCESSO = 1e-2
 
 

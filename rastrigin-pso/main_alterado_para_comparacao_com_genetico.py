@@ -50,9 +50,7 @@ def passo_pso(enxame, perfil, w, rng, cont):
     for p in enxame:
         for k in range(DIMENSOES):
             r1, r2 = rng.random(), rng.random()
-            v = (w * p["v"][k]
-                 + perfil["c1"] * r1 * (p["pbest_x"][k] - p["x"][k])
-                 + perfil["c2"] * r2 * (gbest[k] - p["x"][k]))
+            v = (w * p["v"][k] + perfil["c1"] * r1 * (p["pbest_x"][k] - p["x"][k]) + perfil["c2"] * r2 * (gbest[k] - p["x"][k]))
             v = max(-vmax, min(vmax, v))
             x = p["x"][k] + v
             if x < LIMITES[0] or x > LIMITES[1]:
@@ -68,7 +66,7 @@ def passo_pso(enxame, perfil, w, rng, cont):
 
 
 def migrar_anel(enxames):
-    """Melhor pBest do enxame i substitui a pior partícula do enxame i+1 (snapshot simultâneo).
+    """Melhor pBest do enxame i substitui a pior partícula do enxame i+1.
     O fitness do migrante já é conhecido, então não custa avaliação."""
     n = len(enxames)
     envios = []

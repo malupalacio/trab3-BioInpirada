@@ -3,16 +3,25 @@ joao@hestia:~/trab3-BioInpirada$ python3 comparar.py
 Fitness final (menor é melhor; sucesso = fitness <= 0.01)
 Algoritmo          Runs  Aval.      Média     Desvio    Mediana     Melhor       Pior  Sucesso  Aval→limiar
 -----------------------------------------------------------------------------------------------------------
-EA                   30  51405    0.00000    0.00000    0.00000    0.00000    0.00000    30/30        12699
-Genetico             30   1596    0.18253    0.15700    0.14216    0.00526    0.53267     1/30         1566
-PSO_anel             30  10200    0.00000    0.00000    0.00000    0.00000    0.00000    30/30         3016
-PSO_sem_migracao     30  10200    0.00000    0.00001    0.00000    0.00000    0.00004    30/30         3434
+Genetico-Boosted     50  51405    0.00000    0.00000    0.00000    0.00000    0.00000    50/50        12310
+Genetico             50   1596    0.22010    0.21661    0.14435    0.00526    1.23027     1/50         1566
+PSO_anel             50  10200    0.00000    0.00000    0.00000    0.00000    0.00000    50/50         3090
+PSO_sem_migracao     50  10200    0.00000    0.00001    0.00000    0.00000    0.00005    50/50         3570
 (Aval→limiar = média de avaliações até atingir o limiar, só entre as execuções que atingiram)
 
+Tempo de execução (segundos)
+Algoritmo           Melhor: média   mediana   Total: média   mediana
+--------------------------------------------------------------------
+Genetico-Boosted           3.3525    3.3043         3.5300    3.4322
+Genetico                   0.0265    0.0262         0.0413    0.0387
+PSO_anel                   0.0228    0.0229         0.0236    0.0235
+PSO_sem_migracao           0.0231    0.0229         0.0240    0.0235
+(Melhor = tempo até encontrar o melhor fitness final; Total = duração da execução inteira)
+
 Teste de Wilcoxon da soma de postos (Mann-Whitney U), fitness final, bicaudal:
-  EA vs Genetico: p = 3.018e-11  (diferença significativa a 5%)
-  EA vs PSO_anel: p = 1.555e-07  (diferença significativa a 5%)
-  EA vs PSO_sem_migracao: p = 0.07365  (sem diferença significativa a 5%)
-  Genetico vs PSO_anel: p = 2.101e-11  (diferença significativa a 5%)
-  Genetico vs PSO_sem_migracao: p = 2.514e-11  (diferença significativa a 5%)
-  PSO_anel vs PSO_sem_migracao: p = 0.07946  (sem diferença significativa a 5%)
+  Genetico-Boosted vs Genetico: p = 7.057e-18  (diferença significativa a 5%)
+  Genetico-Boosted vs PSO_anel: p = 9.329e-11  (diferença significativa a 5%)
+  Genetico-Boosted vs PSO_sem_migracao: p = 0.143  (sem diferença significativa a 5%)
+  Genetico vs PSO_anel: p = 2.751e-18  (diferença significativa a 5%)
+  Genetico vs PSO_sem_migracao: p = 4.972e-18  (diferença significativa a 5%)
+  PSO_anel vs PSO_sem_migracao: p = 0.004538  (diferença significativa a 5%)

@@ -298,7 +298,7 @@ def executar(seed, verbose=False):
 
 
 def main():
-    ap = criar_parser("Genetico em ilhas na Rastrigin 2D")
+    ap = criar_parser("Genetico-Boosted em ilhas na Rastrigin 2D")
     args = ap.parse_args()
 
     if args.verbose:
@@ -306,7 +306,7 @@ def main():
         print(f"\nAvaliações: {cont.n} | Melhor fitness avaliado: {cont.melhor:.6f}")
         return
 
-    rodar_varias("Genetico", executar, args)
+    rodar_varias("Genetico-Boosted", executar, args)
 
 
 if __name__ == "__main__":

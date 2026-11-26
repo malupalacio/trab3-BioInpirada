@@ -65,7 +65,7 @@ class Contador:
 
 def criar_parser(descricao):
     ap = argparse.ArgumentParser(description=descricao)
-    ap.add_argument("--runs", type=int, default=30, help="nº de execuções (padrão 30)")
+    ap.add_argument("--runs", type=int, default=50, help="nº de execuções (padrão 30)")
     ap.add_argument("--seed", type=int, default=0, help="semente base: a execução i usa seed+i")
     ap.add_argument("--pasta", type=str, default="resultados", help="pasta de saída dos CSVs")
     ap.add_argument("--verbose", action="store_true", help="1 execução detalhada, sem salvar CSV")
@@ -83,17 +83,23 @@ def salvar_resultados(caminho, resultados):
 
 
 def salvar_curvas(caminho, resultados):
-    """Melhor fitness (média e mediana entre as execuções) a cada PASSO_CURVA avaliações."""
+    """Melhor fitness (média, mediana e desvio entre as execuções) a cada PASSO_CURVA avaliações."""
     n_min = min(len(r["trajetoria"]) for r in resultados)
     pontos = list(range(PASSO_CURVA, n_min + 1, PASSO_CURVA))
     if not pontos or pontos[-1] != n_min:
         pontos.append(n_min)
     with open(caminho, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["avaliacoes", "media", "mediana"])
+        w.writerow(["avaliacoes", "media", "mediana", "desvio"])
         for k in pontos:
             vals = [r["trajetoria"][k - 1] for r in resultados]
-            w.writerow([k, f"{statistics.mean(vals):.8f}", f"{statistics.median(vals):.8f}"])
+            desvio = statistics.pstdev(vals) if len(vals) > 1 else 0.0
+            w.writerow([
+                k,
+                f"{statistics.mean(vals):.8f}",
+                f"{statistics.median(vals):.8f}",
+                f"{desvio:.8f}",
+            ])
 
 
 def resumir(nome, resultados):
