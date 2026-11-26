@@ -1,6 +1,6 @@
 """
-Código compartilhado entre o Genetico (main_alterado_para_comparacao_com_PSO.py) e 
-o PSO (../main_alterado_para_comparacao_com_genetico.py).
+Código compartilhado entre o Genetico (main.py) e 
+o PSO (../main.py).
 
 fazendo isso a gente tem certeza que os dois algoritmos usam o mesmo problema, o mesmo contador
 de avaliações, as mesmas métricas e o mesmo formato de CSV.

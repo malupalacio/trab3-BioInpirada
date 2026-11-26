@@ -1,0 +1,27 @@
+(base) joao@joao-neo-22:~/trab3-BioInpirada$ python3 comparar.py --pastas  sphere-genetico/resultados sphere-pso/resultados
+
+Fitness final (menor é melhor; sucesso = fitness <= 0.01)
+Algoritmo          Runs  Aval.      Média     Desvio    Mediana     Melhor       Pior  Sucesso  Aval→limiar
+-----------------------------------------------------------------------------------------------------------
+Genetico-Boosted     50  51405    0.00000    0.00000    0.00000    0.00000    0.00000    50/50         1568
+Genetico             50   1596    0.00005    0.00005    0.00003    0.00000    0.00022    50/50          475
+PSO_anel             50  10200    0.00000    0.00000    0.00000    0.00000    0.00000    50/50          465
+PSO_sem_migracao     50  10200    0.00000    0.00000    0.00000    0.00000    0.00000    50/50          465
+(Aval→limiar = média de avaliações até atingir o limiar, só entre as execuções que atingiram)
+
+Tempo de execução (segundos)
+Algoritmo           Melhor: média   mediana   Total: média   mediana
+--------------------------------------------------------------------
+Genetico-Boosted           2.2328    2.2553         2.3589    2.3459
+Genetico                   0.0203    0.0217         0.0263    0.0260
+PSO_anel                   0.0136    0.0131         0.0141    0.0134
+PSO_sem_migracao           0.0128    0.0129         0.0133    0.0132
+(Melhor = tempo até encontrar o melhor fitness final; Total = duração da execução inteira)
+
+Teste de Wilcoxon da soma de postos (Mann-Whitney U), fitness final, bicaudal:
+  Genetico-Boosted vs Genetico: p = 3.311e-20  (diferença significativa a 5%)
+  Genetico-Boosted vs PSO_anel: p = nan  (sem diferença significativa a 5%)
+  Genetico-Boosted vs PSO_sem_migracao: p = nan  (sem diferença significativa a 5%)
+  Genetico vs PSO_anel: p = 3.311e-20  (diferença significativa a 5%)
+  Genetico vs PSO_sem_migracao: p = 3.311e-20  (diferença significativa a 5%)
+  PSO_anel vs PSO_sem_migracao: p = nan  (sem diferença significativa a 5%)

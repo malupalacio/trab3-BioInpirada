@@ -1,0 +1,27 @@
+(base) joao@joao-neo-22:~/trab3-BioInpirada$ python3 comparar.py --pastas  rosenbrock-genetico/resultados rosenbrock-pso/resultados
+
+Fitness final (menor é melhor; sucesso = fitness <= 0.01)
+Algoritmo          Runs  Aval.      Média     Desvio    Mediana     Melhor       Pior  Sucesso  Aval→limiar
+-----------------------------------------------------------------------------------------------------------
+Genetico-Boosted     50  51405    0.00000    0.00000    0.00000    0.00000    0.00002    50/50         6159
+Genetico             50   1596    0.01879    0.02621    0.00957    0.00014    0.14757    27/50         1252
+PSO_anel             50  10200    0.00000    0.00000    0.00000    0.00000    0.00002    50/50         2081
+PSO_sem_migracao     50  10200    0.00001    0.00001    0.00000    0.00000    0.00007    50/50         2110
+(Aval→limiar = média de avaliações até atingir o limiar, só entre as execuções que atingiram)
+
+Tempo de execução (segundos)
+Algoritmo           Melhor: média   mediana   Total: média   mediana
+--------------------------------------------------------------------
+Genetico-Boosted           1.9540    2.0005         2.2191    2.2084
+Genetico                   0.0195    0.0218         0.0273    0.0272
+PSO_anel                   0.0112    0.0116         0.0123    0.0123
+PSO_sem_migracao           0.0111    0.0115         0.0120    0.0120
+(Melhor = tempo até encontrar o melhor fitness final; Total = duração da execução inteira)
+
+Teste de Wilcoxon da soma de postos (Mann-Whitney U), fitness final, bicaudal:
+  Genetico-Boosted vs Genetico: p = 7.066e-18  (diferença significativa a 5%)
+  Genetico-Boosted vs PSO_anel: p = 0.3683  (sem diferença significativa a 5%)
+  Genetico-Boosted vs PSO_sem_migracao: p = 0.06929  (sem diferença significativa a 5%)
+  Genetico vs PSO_anel: p = 7.066e-18  (diferença significativa a 5%)
+  Genetico vs PSO_sem_migracao: p = 7.066e-18  (diferença significativa a 5%)
+  PSO_anel vs PSO_sem_migracao: p = 0.4713  (sem diferença significativa a 5%)

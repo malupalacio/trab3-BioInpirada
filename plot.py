@@ -4,10 +4,10 @@ import statistics
 import matplotlib.pyplot as plt
 
 PASTAS = [
-    "rastrigin-genetico/resultados",
-    "rastrigin-pso/resultados",
+    "ackley-genetico/resultados",
+    "ackley-pso/resultados",
 ]
-PASTA_SAIDA = "graficos"
+PASTA_SAIDA = "ackley-graficos"
 LIMIAR_SUCESSO = 1e-2
 
 # Ordem e rótulos amigáveis para a legenda

@@ -1,13 +1,14 @@
-import random
 import math
-import sys
+import random
+
+from comum import DIMENSOES, LIMITES, Contador, criar_parser, rodar_varias
 
 # --- CONFIGURAÇÕES E PARÂMETROS ---
 N_ILHAS = 4
-TEMP_SIMULACAO = 50       # Número de gerações
-TAMANHO_GRADE = 10        # Grade 10x10 = 100 posições por ilha
-DIMENSOES = 2             # Função 2D (x1, x2)
-LIMITES = (-5.12, 5.12)   # Limites do domínio da Rastrigin
+# TEMP_SIMULACAO = 50       # Número de gerações padrao (resultados: Taxa de sucesso (<= 0.01): 1/30)
+# TAMANHO_GRADE = 10        # Tamanho grade padrao (resultados: Taxa de sucesso (<= 0.01): 1/30)
+TEMP_SIMULACAO = 320       # Número de gerações aumentado pra subir ao patamar de quantd. de execuçẽos do PSO
+TAMANHO_GRADE = 25        # Tamanho grade aumentado pra subir ao patamar de quantd. de execuçẽos do PSO
 
 R_INICIAL = [2.8, 2.9, 3.0, 3.1]  # Promove oscilação e renovação nas primeiras gerações
 R_FINAL = [1.8, 2.0, 2.2, 2.3]    # Promove estabilidade e convergência no final
@@ -23,14 +24,14 @@ LIMIAR_MELHORA = 1e-3
 LIMIAR_SEMELHANCA = 0.50
 FATOR_REDUCAO_SEMELHANCA = 0.50
 
-def rastrigin(x):
-    A = 10
-    return A * len(x) + sum([(xi**2 - A * math.cos(2 * math.pi * xi)) for xi in x])
+# Estado global reiniciado a cada execução em executar(seed).
+rng = random.Random()
+cont = Contador()
 
 def criar_individuo(ilha):
-    posicao = [random.uniform(LIMITES[0], LIMITES[1]) for _ in range(DIMENSOES)]
-    sigma = [SIGMAS_BASE[ilha] * random.uniform(0.8, 1.2) for _ in range(DIMENSOES)]
-    fit = rastrigin(posicao)
+    posicao = [rng.uniform(LIMITES[0], LIMITES[1]) for _ in range(DIMENSOES)]
+    sigma = [SIGMAS_BASE[ilha] * rng.uniform(0.8, 1.2) for _ in range(DIMENSOES)]
+    fit = cont.avaliar(posicao)
     
     ind = {
         "x": posicao, 
@@ -109,7 +110,7 @@ def reproduzir(pai1, pai2, ilha_p1, ilha_p2, ilha_filho, geracao_atual):
     # Taxas de aprendizagem dinâmicas baseadas no numero de dimensões
     tau_global = 1.0 / math.sqrt(2 * DIMENSOES)
     tau_local = 1.0 / math.sqrt(2 * math.sqrt(DIMENSOES))
-    fator_global = math.exp(random.gauss(0, tau_global))
+    fator_global = math.exp(rng.gauss(0, tau_global))
     
     novo_x = []
     novo_sigma = []
@@ -119,17 +120,17 @@ def reproduzir(pai1, pai2, ilha_p1, ilha_p2, ilha_filho, geracao_atual):
         sigma_medio = 0.5 * (pai1["sigma"][k] + pai2["sigma"][k])
         
         # Mutação do Sigma na dimensão k
-        sigma_k = sigma_medio * fator_global * math.exp(random.gauss(0, tau_local))
+        sigma_k = sigma_medio * fator_global * math.exp(rng.gauss(0, tau_local))
         novo_sigma.append(sigma_k)
         
         # Media da posição dos pais na dimensão k mutada pelo novo sigma
-        x_k = 0.5 * (pai1["x"][k] + pai2["x"][k]) + random.gauss(0, sigma_k)
+        x_k = 0.5 * (pai1["x"][k] + pai2["x"][k]) + rng.gauss(0, sigma_k)
         
         # Garante que não sai dos limites da Rastrigin
         x_k = max(LIMITES[0], min(LIMITES[1], x_k))
         novo_x.append(x_k)
         
-    fit = rastrigin(novo_x)
+    fit = cont.avaliar(novo_x)
     
     # Seleciona o histórico do pai mais apto para continuar a linhagem
     pai_principal = pai1 if pai1["fitness"] < pai2["fitness"] else pai2
@@ -150,20 +151,20 @@ def reproduzir(pai1, pai2, ilha_p1, ilha_p2, ilha_filho, geracao_atual):
     return {"x": novo_x, "sigma": novo_sigma, "fitness": fit, "historico": novo_historico}
 
 def nascer_individuos(grade, ilha, quantidade, grades, geracao_atual, taxa_migracao):
-    vazios = random.sample(obter_posicoes_vazias(grade), quantidade)
+    vazios = rng.sample(obter_posicoes_vazias(grade), quantidade)
     
     for i, j in vazios:
-        eh_migracao = random.random() < taxa_migracao
+        eh_migracao = rng.random() < taxa_migracao
         
         if eh_migracao:
             outras = [k for k in range(N_ILHAS) if k != ilha]
-            ilha_ext = random.choice(outras)
+            ilha_ext = rng.choice(outras)
             ocupados_ext = obter_posicoes_ocupadas(grades[ilha_ext])
             ocupados_loc = obter_posicoes_ocupadas(grade)
             
             if ocupados_loc and ocupados_ext:
-                pos_loc = random.choice(ocupados_loc)
-                pos_ext = random.choice(ocupados_ext)
+                pos_loc = rng.choice(ocupados_loc)
+                pos_ext = rng.choice(ocupados_ext)
                 p_loc = grade[pos_loc[0]][pos_loc[1]]
                 p_ext = grades[ilha_ext][pos_ext[0]][pos_ext[1]]
                 
@@ -176,7 +177,7 @@ def nascer_individuos(grade, ilha, quantidade, grades, geracao_atual, taxa_migra
         else:
             ocupados = obter_posicoes_ocupadas(grade)
             if len(ocupados) >= 2:
-                p1_pos, p2_pos = random.sample(ocupados, 2)
+                p1_pos, p2_pos = rng.sample(ocupados, 2)
                 p1 = grade[p1_pos[0]][p1_pos[1]]
                 p2 = grade[p2_pos[0]][p2_pos[1]]
                 
@@ -210,13 +211,18 @@ def atualizar_grade(grade, x_novo, ilha, grades, geracao_atual, taxas_migracao):
         remover_individuos(grade, qtd_turnover)
         nascer_individuos(grade, ilha, qtd_turnover, grades, geracao_atual, taxas_migracao)
 
-def main():
+def executar(seed, verbose=False):
+    """Uma execução completa do Genetico em ilhas. Retorna as mesmas métricas do PSO (comum.py)."""
+    global cont
+    rng.seed(seed)
+    cont = Contador()
+
     X = X_INICIAL.copy()
     grades = [criar_grade() for _ in range(N_ILHAS)]
-    
+
     for i in range(N_ILHAS):
         qtd = round(X[i] * TAMANHO_GRADE * TAMANHO_GRADE)
-        posicoes = random.sample([(r, c) for r in range(TAMANHO_GRADE) for c in range(TAMANHO_GRADE)], qtd)
+        posicoes = rng.sample([(r, c) for r in range(TAMANHO_GRADE) for c in range(TAMANHO_GRADE)], qtd)
         for r, c in posicoes:
             grades[i][r][c] = criar_individuo(i)
 
@@ -246,18 +252,19 @@ def main():
         for i in range(N_ILHAS):
             atualizar_grade(grades[i], X[i], i, grades, g + 1, taxas_migracao[i])
 
-        print(f"\n--- GERAÇÃO {g+1:02d} ---")
-        print(
-            f"  Diversidade entre ilhas={diversidade:.3f} | "
-            f"Taxas de migração={[f'{taxa:.2f}' for taxa in taxas_migracao]}"
-        )
+        if verbose:
+            print(f"\n--- GERAÇÃO {g+1:02d} ---")
+            print(
+                f"  Diversidade entre ilhas={diversidade:.3f} | "
+                f"Taxas de migração={[f'{taxa:.2f}' for taxa in taxas_migracao]}"
+            )
         for i in range(N_ILHAS):
             pos_ocupadas = obter_posicoes_ocupadas(grades[i])
             if not pos_ocupadas:
                 continue
-                
+
             melhor_ilha = min([grades[i][r][c] for r, c in pos_ocupadas], key=lambda ind: ind["fitness"])
-            
+
             if melhor_global is None or melhor_ilha["fitness"] < melhor_global["fitness"]:
                 melhor_global = {
                     "x": melhor_ilha["x"].copy(),
@@ -266,24 +273,41 @@ def main():
                     "historico": [dict(p) for p in melhor_ilha["historico"]]
                 }
 
-            sigmas_str = ", ".join([f"{s:.4f}" for s in melhor_ilha['sigma']])
+            if verbose:
+                sigmas_str = ", ".join([f"{s:.4f}" for s in melhor_ilha['sigma']])
+                print(f"Ilha {i} (R={R_atual[i]:.3f}): Pop={len(pos_ocupadas):02d} | Melhor Fitness={melhor_ilha['fitness']:.4f} | Sigmas=[{sigmas_str}]")
 
-            print(f"Ilha {i} (R={R_atual[i]:.3f}): Pop={len(pos_ocupadas):02d} | Melhor Fitness={melhor_ilha['fitness']:.4f} | Sigmas=[{sigmas_str}]")
+        if verbose:
+            print(f"-> Melhor Global até agora: {melhor_global['fitness']:.6f}")
 
-        print(f"-> Melhor Global até agora: {melhor_global['fitness']:.6f}")
+    if verbose:
+        # --- IMPRESSÃO DO HISTÓRICO DA LINHAGEM ---
+        print("\n===================================================================================")
+        print("                LINHAGEM GENÉTICA DA MELHOR SOLUÇÃO ENCONTRADA")
+        print("===================================================================================")
+        print(f"Fitness Final: {melhor_global['fitness']:.6f}\n")
+        print(f"{'Gen':<5} | {'Nascido em':<10} | {'Cruzamento (Pais)':<22} | {'Posição (x1, x2)':<22} | {'Fitness':<10}")
+        print("-" * 83)
 
-    # --- IMPRESSÃO DO HISTÓRICO DA LINHAGEM ---
-    print("\n===================================================================================")
-    print("                LINHAGEM GENÉTICA DA MELHOR SOLUÇÃO ENCONTRADA")
-    print("===================================================================================")
-    print(f"Fitness Final: {melhor_global['fitness']:.6f}\n")
-    print(f"{'Gen':<5} | {'Nascido em':<10} | {'Cruzamento (Pais)':<22} | {'Posição (x1, x2)':<22} | {'Fitness':<10}")
-    print("-" * 83)
-    
-    for passo in melhor_global["historico"]:
-        pos_str = f"[{passo['x'][0]:.3f}, {passo['x'][1]:.3f}]"
-        ilha_str = f"Ilha {passo['ilha_origem']}"
-        print(f"{passo['geracao']:<5} | {ilha_str:<10} | {passo['pais']:<22} | {pos_str:<22} | {passo['fitness']:<10.4f}")
+        for passo in melhor_global["historico"]:
+            pos_str = f"[{passo['x'][0]:.3f}, {passo['x'][1]:.3f}]"
+            ilha_str = f"Ilha {passo['ilha_origem']}"
+            print(f"{passo['geracao']:<5} | {ilha_str:<10} | {passo['pais']:<22} | {pos_str:<22} | {passo['fitness']:<10.4f}")
+
+    return cont.resultado(seed)
+
+
+def main():
+    ap = criar_parser("Genetico-Boosted em ilhas na Rastrigin 2D")
+    args = ap.parse_args()
+
+    if args.verbose:
+        executar(args.seed, verbose=True)
+        print(f"\nAvaliações: {cont.n} | Melhor fitness avaliado: {cont.melhor:.6f}")
+        return
+
+    rodar_varias("Genetico-Boosted", executar, args)
+
 
 if __name__ == "__main__":
     main()
